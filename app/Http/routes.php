@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/resource', function () {
 
     $authenticated = false;
+    if (Session::has('authenticated')){
+        if (Session::get('authenticated') == true) {
+            $authenticated = true;
+        }
+    }
+
     if ($authenticated){
         return view('resource');
     } else {
