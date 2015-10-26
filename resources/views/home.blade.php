@@ -38,7 +38,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Resource</div>
+        <div class="title">Home</div>
     </div>
 </div>
 </body>
