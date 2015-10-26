@@ -40,7 +40,8 @@
     <div class="content">
         <div class="title">Login Page</div>
         <br />
-        <form>
+        <form method="post" action="{{route('auth.postLogin')}}">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="form-group">
                 <label for="email">Email address:</label>
                 <input type="email" class="form-control" id="email" name="email">

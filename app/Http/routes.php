@@ -11,16 +11,15 @@
 |
 */
 
+Route::post('/postLogin', ['as'=>'auth.postLogin', 'uses' =>'loginController@postLogin']);
+Route::get('/login', 'loginController@getLogin');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/home', function () {
     return view('home');
-});
-
-Route::get('/login', function () {
-    return view('login');
 });
 
 Route::get('/resource', function () {
