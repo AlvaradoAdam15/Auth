@@ -1,50 +1,58 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Http\Requests;
-
+use Hash;
+use Illuminate\Http\Request;
+use App\User;
 /**
- * Class loginController
+ * Class LoginController
  * @package App\Http\Controllers
  */
-class loginController extends Controller
+class LoginController extends Controller
 {
     /**
-     * Process a login HTTP POST
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postLogin(Request $request)
-    {
+    public function postLogin(Request $request) {
         //TODO
-        echo "Hello to postLogin";
-
-        if ($this->login($request->email, $request->password)){
-            //Redirect to HOME
+        //dd($request->all());
+        //\Debugbar::info("Ok entra a postLogin");
+        //echo "asdasd";
+        if ($this->login($request->email,$request->password)) {
+            //REDIRECT TO HOME
             return redirect()->route('auth.home');
         } else {
-            //Redirect Back
+            //REDIRECT BACK
             return redirect()->route('auth.login');
         }
     }
-
+    /**
+     * Login
+     * @param $email
+     * @param $password
+     * @return bool
+     */
+    private function login($email, $password)
+    {
+        //TODO: Mirar bé a la base de dades
+        //$user = User::findOrFail(id);
+        //$user = User::all();
+        $user = User::where('email',$email)->first();
+        if ($user == null) {
+            return false;
+        }
+        if (Hash::check($password, $user->password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * get Login
      * @return \Illuminate\View\View
      */
-    public function getLogin()
-    {
+    public function getLogin() {
         return view('login');
-    }
-
-    /**
-     * @return bool
-     */
-    public function login()
-    {
-        //TODO: Mirar bé a la BD
-        return true;
     }
 }
