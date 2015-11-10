@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-
 class ExampleTest extends TestCase
 {
     /**
@@ -72,18 +70,10 @@ class ExampleTest extends TestCase
     }
     public function testPostLoginOk(){
         $this->visit('/login')
-            ->type('pepitapalotes@gmail.com', 'email')
+            ->type('adamalvarado@iesebre.com', 'email')
             ->type('123456', 'password')
             ->check('remember')
             ->press('login')
             ->seePageIs('/home');
-    }
-    public function testPostLoginNotOk(){
-        $this->visit('/login')
-            ->type('sergiturbadenas@gmail.com', 'email')
-            ->type('123456', 'password')
-            ->check('remember')
-            ->press('login')
-            ->seePageIs('/login');
     }
 }

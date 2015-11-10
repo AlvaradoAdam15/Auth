@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Http\Requests;
 use Hash;
 use Illuminate\Http\Request;
