@@ -36,15 +36,25 @@
     <div class="content">
         <div class="title">LOGIN</div>
 
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form method="post" action="{{ route('auth.postLogin') }}">
             {!! csrf_field() !!}
             <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" value="{{old(email)}}" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" class="form-control" id="email" name="password">
+                <input type="password" class="form-control" id="email" name="password" required>
             </div>
             <div class="checkbox">
                 <label><input name="remember" type="checkbox"> Remember me</label>
