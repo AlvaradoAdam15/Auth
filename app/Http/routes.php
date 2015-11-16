@@ -3,11 +3,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login',
-    ['as' => 'auth.login',
-        'uses' => 'LoginController@getLogin'
-    ]);
-
 Route::get('/login', [
     'as' => 'auth.getLogin',
     'uses' => 'LoginController@getLogin'] );
