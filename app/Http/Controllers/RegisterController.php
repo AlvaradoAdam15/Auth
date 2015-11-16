@@ -25,7 +25,7 @@ class RegisterController extends Controller
         //dd(Input::all());
         $this->validate($request, [
             'name' => 'required|max:100',
-            'email' => 'required|email|unique::users,email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed'
         ]);
 

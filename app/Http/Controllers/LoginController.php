@@ -27,8 +27,8 @@ class LoginController extends Controller
         //$user = User::all();
 
         $this->validate($request, [
-        'email' => 'required|email|unique::users,email',
-            'password' => 'required|confirmed'
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         if ($this->login($request->email,$request->password)) {
