@@ -37,13 +37,22 @@
         <div class="title">LOGIN</div>
 
         @if (count($errors) > 0)
-            <div class="alert alert-danger">
+            <div>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
+        @endif
+
+        @if (Session::has('login_error'))
+            <div class="alert alert-danger">
+                <ul>
+                    {{ Session::get('login_error') }}
+                </ul>
+            </div>
+
         @endif
 
         <form method="post" action="{{ route('auth.postLogin') }}">
