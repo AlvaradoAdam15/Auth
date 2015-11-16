@@ -42,11 +42,21 @@
     <div class="content">
         <div class="title">REGISTER</div>
 
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form method="post" action={{ route('register.postRegister') }}>
             <input type="hidden" value="{{ csrf_token() }}" name="_token">
 
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">User name</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
