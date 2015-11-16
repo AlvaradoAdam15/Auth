@@ -59,7 +59,7 @@
             </div>
             <div class="form-group">
                 <label for="password_confirm">Confirm password</label>
-                <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
             </div>
 
             <!--input type="number" class="form-control" name="is_admin"-->
