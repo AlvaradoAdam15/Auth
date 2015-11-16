@@ -20,8 +20,15 @@ class RegisterController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function postRegister()
+    public function postRegister(Request $request)
     {
+        //dd(Input::all());
+        $this->validate($request, [
+            'name' => 'required|max:100',
+            'email' => 'required|email|unique',
+            'password' => 'required',
+        ]);
+
         //dd(Input::all());
         $user = new User();
         $user->name = Input::get('name');
