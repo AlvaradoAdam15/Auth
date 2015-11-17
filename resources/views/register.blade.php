@@ -42,9 +42,8 @@
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container"><div class="jumbotron">REGISTER</div>
     <div class="content">
-        <div class="title">REGISTER</div>
 
         @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -78,7 +77,7 @@
 
             <!--input type="number" class="form-control" name="is_admin"-->
 
-            <button id="Login" type="submit" class="btn btn-default">Register</button>
+            <button id="Login" type="submit" class="btn btn-primary">Register</button>
             <button type="reset" class="btn btn-default">Reset</button>
 
         </form>
