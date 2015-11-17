@@ -60,11 +60,23 @@
 
             <div class="form-group">
                 <label for="name">User name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="El teu nom aquí" value="{{old("name")}}" required>
+                <input type="text"
+                       class="form-control"
+                       id="name" name="name"
+                       placeholder="El teu nom aquí"
+                       value="{{old("name")}}"
+
+                       required>
             </div>
             <div class="form-group" id="emailFormGroup">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" value="{{old("email")}}" required>
+                <input type="email"
+                       class="form-control"
+                       id="email" name="email"
+                       placeholder="email@example.com"
+                       value="{{old("email")}}"
+                       v-on:onblur="checkEmailExist"
+                       required>
                 <div v-show="exists">Email ja exsisteix!</div>
             </div>
             <div class="form-group">
