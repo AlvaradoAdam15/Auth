@@ -10,6 +10,9 @@ use Input;
 
 class RegisterController extends Controller
 {
+
+    protected $email;
+    protected $name;
     /**
      * @return \Illuminate\View\View
      */
@@ -22,6 +25,7 @@ class RegisterController extends Controller
      */
     public function postRegister(Request $request)
     {
+
         //dd(Input::all());
         $this->validate($request, [
             'name' => 'required|max:100',
@@ -36,7 +40,31 @@ class RegisterController extends Controller
         $user->password = bcrypt(Input::get('password'));
         $user->save();
 
+        $this->email = $request->get('email');
+        $this->name = $request->get('name');
+        $this->sendRegisterEmail();
+
         //User::create(Input::all());
         return redirect(route('auth.getLogin'));
     }
+
+    private function sendRegisterEmail()
+    {
+        $emailData = new \stdClass();
+
+        $emailData->email = $this->email;
+        $emailData->name = $this->name;
+        $emailData->subject = "Welcome user" . $this->name;
+
+        $data['name'] = $this->name;
+
+        \Mail::send('emails.message', $data, function($message) use ($emailData) {
+           $message->from(env('CONTACT_MAIL'), env('CONTACT_NAME'));
+            $message->to($emailData->email, $emailData->name);
+            $message->subject($emailData->subject);
+        });
+
+    }
+
+
 }
