@@ -10324,11 +10324,21 @@ module.exports = Watcher
 
 var Vue = require('vue');
 
-new Vue({
-    el: '#emailFormGroup',
+var vm = new Vue({
+    el: '#email',
     data: {
-        exists: false
+        placeholder: "youremail@example.com"
+    },
+    methods: {
+        sayHello: function sayHello() {
+            alert("Hola");
+        },
+
+        checkEmailExsists: function checkEmailExsists(item) {
+            console.log("hey");
+        }
     }
+
 });
 
 },{"vue":67}]},{},[69]);

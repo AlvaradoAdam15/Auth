@@ -1,8 +1,18 @@
 var Vue = require('vue');
 
-new Vue({
-    el: '#emailFormGroup',
+var vm = new Vue({
+    el: '#email',
     data: {
-        exists: false
+        placeholder: "youremail@example.com"
+    },
+    methods: {
+        sayHello: function (){
+            alert("Hola");
+        },
+
+        checkEmailExsists: function (item) {
+            console.log("hey")
+        }
     }
-})
+
+});

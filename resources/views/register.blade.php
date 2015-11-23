@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <title>Register</title>
 
@@ -68,16 +68,18 @@
 
                        required>
             </div>
-            <div class="form-group" id="emailFormGroup">
+            <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email"
+
+                <input
+                       type="email"
                        class="form-control"
                        id="email" name="email"
-                       placeholder="email@example.com"
+                       placeholder="@{{placeholder}}"
                        value="{{old("email")}}"
-                       v-on:onblur="checkEmailExist"
-                       required>
-                <div v-show="exists">Email ja exsisteix!</div>
+                       required
+                        v-on:click="sayHello">
+
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -101,7 +103,6 @@
     </div>
 </div>
 
-<script src="{{ asset('js/all.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
