@@ -23,7 +23,7 @@ var vm = new Vue({
                 console.debug(data);
                 if (data == 'true'){
                     //TODO email esta lliure DO NOTHING!
-                } esle{
+                } else{
                     alert("Email ocupat");
                 }
             }).fail(function(data){
