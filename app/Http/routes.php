@@ -14,21 +14,26 @@ Route::post('/postLogin', [
 Route::get('/home', ['as' => 'auth.home', function () { return view('home'); }]);
 
 Route::get('/resource', function () {
-    $authenticated = false;
-    //Session::set('authenticated', false);
-    if (Session::has('authenticated'))
-    {
-        if (Session::get('authenticated') == true)
-        {
-            $authenticated = true;
-        }
-    }
-    if ($authenticated)
-    {
+//    $authenticated = false;
+//    //Session::set('authenticated', false);
+//    if (Session::has('authenticated'))
+//    {
+//        if (Session::get('authenticated') == true)
+//        {
+//            $authenticated = true;
+//        }
+//    }
+//    if ($authenticated)
+//    {
+//        return view('resource');
+//    }
+//    else
+//    {
+//        return redirect()->route('auth.getLogin');
+//    }
+    if(Auth::check()){
         return view('resource');
-    }
-    else
-    {
+    } else {
         return redirect()->route('auth.getLogin');
     }
 });

@@ -21,7 +21,7 @@ class ExampleTest extends TestCase
      */
     public function testLoginPage()
     {
-        $this->visit(route('auth.login'))
+        $this->visit(route('auth.getLogin'))
             ->see('LOGIN');
     }
     /**
@@ -33,7 +33,7 @@ class ExampleTest extends TestCase
     {
         $this->unlogged();
         $this->visit('/resource')
-            ->seePageIs(route('auth.login'))
+            ->seePageIs(route('auth.getLogin'))
             ->see('Login')
             ->dontSee('Logout');
         //->seePageIs('/login');
@@ -43,7 +43,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testUserWithAccessToResource()
+    public function AtestUserWithAccessToResource()
     {
         $this->logged();
         $this->visit('/resource')
@@ -62,13 +62,13 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testLoginPageHaveRegisterLinkAndWorksOk()
+    public function AtestLoginPageHaveRegisterLinkAndWorksOk()
     {
         $this->visit('/login')
             ->click('register')
             ->seePageIs('/register');
     }
-    public function testPostLoginOk(){
+    public function AtestPostLoginOk(){
         $this->visit('/login')
             ->type('adamalvarado@iesebre.com', 'email')
             ->type('123456', 'password')
