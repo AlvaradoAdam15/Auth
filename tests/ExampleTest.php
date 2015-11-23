@@ -43,20 +43,23 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function AtestUserWithAccessToResource()
+    public function atestUserWithAccessToResource()
     {
         $this->logged();
         $this->visit('/resource')
             ->seePageIs('/resource');
     }
+
     private function logged()
     {
-        Session::set('authenticated',true);
+        Auth::loginUsingId(1);
     }
+
     private function unlogged()
     {
-        Session::set('authenticated',false);
+        Auth::logout();
     }
+    
     /**
      * bla bla bla
      *
