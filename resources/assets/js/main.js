@@ -21,6 +21,11 @@ var vm = new Vue({
             $.ajax(url).done(function(data){
                 //Ok
                 console.debug(data);
+                if (data == 'true'){
+                    //TODO email esta lliure DO NOTHING!
+                } esle{
+                    alert("Email ocupat");
+                }
             }).fail(function(data){
                 //error
                 alert("Ha petat");
