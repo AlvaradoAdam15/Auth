@@ -18,7 +18,7 @@ Route::get('/resource', function () {
     //Session::set('authenticated', false);
     if (Session::has('authenticated'))
     {
-        if (Session::get('authenticated'))
+        if (Session::get('authenticated') == true)
         {
             $authenticated = true;
         }
@@ -29,7 +29,7 @@ Route::get('/resource', function () {
     }
     else
     {
-        return redirect()->route('auth.login');
+        return redirect()->route('auth.getLogin');
     }
 });
 
