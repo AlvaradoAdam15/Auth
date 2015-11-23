@@ -78,7 +78,7 @@
                        placeholder="@{{placeholder}}"
                        value="{{old("email")}}"
                        required
-                        v-on:click="sayHello">
+                        v-on:blur="checkEmailExsists">
 
             </div>
             <div class="form-group">
