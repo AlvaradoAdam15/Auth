@@ -59,7 +59,7 @@ class ExampleTest extends TestCase
     {
         Auth::logout();
     }
-    
+
     /**
      * bla bla bla
      *
