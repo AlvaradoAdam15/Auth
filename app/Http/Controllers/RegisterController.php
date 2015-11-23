@@ -58,13 +58,12 @@ class RegisterController extends Controller
 
         $data['name'] = $this->name;
 
-        \Mail::send('emails.message', $data, function($message) use ($emailData) {
+        \Mail::queue('emails.message', $data, function($message) use ($emailData) {
            $message->from(env('CONTACT_MAIL'), env('CONTACT_NAME'));
             $message->to($emailData->email, $emailData->name);
             $message->subject($emailData->subject);
         });
 
     }
-
-
+    
 }
