@@ -34,7 +34,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('update-user', function ($user) {
             $roles = $user->roles();
-            
+
             foreach ($roles as $role){
                 $permissions = $role->permissions();
                 foreach ($permissions as $permission){
@@ -52,7 +52,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('is-chrismas', function () {
-          $date = now();
+          // TODO
       });
 
 //        $gate->define('can-phpinfo', function ($user, $post) {
